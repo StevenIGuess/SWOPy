@@ -8,12 +8,13 @@ import time
 import html_to_json
 import json
 import os
+import sys
 
 
 password = getpass.getpass("Input your password for swop please\n")
-userame = input("Enter your username")
+userame = sys.argv[1]
+url = sys.argv[2]
 
-url = "https://oko.swop.schule/login"
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 driver.get(url)
