@@ -1,0 +1,3 @@
+[console_scripts]
+xmltojson=xmltojson.scripts.cli:main
+
