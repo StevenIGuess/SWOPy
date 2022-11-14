@@ -15,14 +15,22 @@ password = getpass.getpass("Input your password for swop please\n")
 userame = sys.argv[1]
 url = sys.argv[2]
 
+try:
+    auth = open("./auth.json", "r")
+    options = json.loads(auth)
+    auth.close()
+except:
+    print("auth.json not found")
+
+
+
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
-driver.get(url)
-assert "OKO" in driver.title
+driver.get(options['url'])
 
 
-driver.find_element(by=By.XPATH, value="/html/body/div/div/div[1]/div/form/input[1]").send_keys(userame)
-driver.find_element(by=By.XPATH, value="/html/body/div/div/div[1]/div/form/input[2]").send_keys(password)
+driver.find_element(by=By.XPATH, value="/html/body/div/div/div[1]/div/form/input[1]").send_keys(options['username'])
+driver.find_element(by=By.XPATH, value="/html/body/div/div/div[1]/div/form/input[2]").send_keys(options['password'])
 driver.find_element(by=By.XPATH, value="/html/body/div/div/div[1]/div/form/button").click()
 
 time.sleep(3)
