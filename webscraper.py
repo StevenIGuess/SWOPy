@@ -11,16 +11,13 @@ import os
 import sys
 
 
-password = getpass.getpass("Input your password for swop please\n")
-userame = sys.argv[1]
-url = sys.argv[2]
-
 try:
-    auth = open("./auth.json", "r")
-    options = json.loads(auth)
+    auth = open(".\\auth.json", "r")
+    options = json.loads(auth.read())
     auth.close()
 except:
     print("auth.json not found")
+    exit()
 
 
 
