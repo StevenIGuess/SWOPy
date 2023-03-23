@@ -1,1 +1,1 @@
-.\SWOPy\Scripts\activate.bat && python webscraper.py
+python ./src/main.py
