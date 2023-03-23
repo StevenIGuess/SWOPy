@@ -1,6 +1,7 @@
 # Swopy
 
-Automated bot that webscrapes Swop and send messages via Telegramm.
+Automated bot that webscrapes Swop and send messages via Telegramm.\
+Swopy works by scraping the requiered data from swop, then parses it and sends it via different bot APIs
 
 ## Plans
 
