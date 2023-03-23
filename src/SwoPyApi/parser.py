@@ -2,7 +2,7 @@ import html_to_json
 import json
 import os
 
-class parser:
+class Parser:
 
     def __init__(self, html):
         self.jsonhtml = html_to_json.convert(html)
@@ -13,7 +13,7 @@ class parser:
 
     def getString(self):
         string = ""
-        string += "\n================================================================================================\n"
+        string += "\n=============================\n"
 
         for j, i in enumerate(self.jsonhtml['div']):
             assignment = i['div'][0]['div'][0]['b'][0]["_value"]
@@ -22,8 +22,8 @@ class parser:
             date = i['div'][0]['span'][1]['_value']
             deadline = i['div'][0]['span'][2]['_value']
             string += f"Aufgabe nummer {j + 1}\n"
-            string += f"{assignment}, \n von {teacher} aus dem Fach {subject}, Datum : {date} Abgabe : {deadline}\n"
-            string += "================================================================================================\n"
+            string += f"{assignment}, \n von {teacher} Fach : {subject}, Datum : {date} Abgabe : {deadline}\n"
+            string += "=============================\n"
         return string
 
     def saveJson(self):
