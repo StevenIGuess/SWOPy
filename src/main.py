@@ -12,18 +12,13 @@ def main():
             options = json.loads(auth.read())
     except:
         print("auth.json not found")
-        sys.stderr.write("ERR::COULD NOT FIND HOMEWORK DIV -> PLEASE UPDATE AUTH.JSON\n")
+        sys.stderr.write("ERR::COULD NOT OPEN AUTH -> PLEASE UPDATE AUTH.JSON\n")
         sys.exit("Programm failed to retrive data")
 
     html = getHomeworkHTML(options) # Get inner html from swop
     p = Parser(html) # create parser instance
 
     send_message_telegram(p.getString(), options) # Send message to telegram
-
-    
-
-
-
 
 if __name__ == "__main__":
     main()
