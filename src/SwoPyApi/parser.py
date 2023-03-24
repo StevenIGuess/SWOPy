@@ -22,7 +22,7 @@ class Parser:
             date = i['div'][0]['span'][1]['_value']
             deadline = i['div'][0]['span'][2]['_value']
             string += f"Aufgabe nummer {j + 1}\n"
-            string += f"{assignment}, \n von {teacher} Fach : {subject}, Datum : {date} Abgabe : {deadline}\n"
+            string += f"{assignment}\n von {teacher}\n Fach : {subject}\n Datum : {date} Abgabe : {deadline}\n"
             string += "=============================\n"
         return string
 

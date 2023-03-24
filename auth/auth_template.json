@@ -6,6 +6,7 @@
     "bookbtn_xpath": "/html/body/div[1]/div/div/aside/div/div[1]/nav/ul/li[4]/a",
     "pagebtn_xpath": "/html/body/div[1]/div/div/div[1]/div/div/div/div[2]/div/div[2]/div/div[2]/div/button",
     "url": "https://oko.swop.schule/swop.html",
+    "mongopassword" : "test",
     "dcbottoken": "69",
     "dchomeworkchannelid": "420",
     "telegramapikey": "elonmusk",

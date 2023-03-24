@@ -1,5 +1,7 @@
 import json
 import sys
+import time
+from SwoPMDB.dbhandeler import initdb
 #from telegram.telegrambot import send_message_telegram
 from SwoPyApi.swopy import getHomeworkHTML
 from SwoPyApi.parser import Parser
@@ -7,6 +9,7 @@ from SwoPyApi.parser import Parser
 
 def main():
 
+    """
     try:
         with open("../auth/auth.json", "r") as auth:
             options = json.loads(auth.read())
@@ -19,8 +22,14 @@ def main():
     p = Parser(html) # create parser instance
 
     print(p.getString())
+    """
 
     #send_message_telegram(p.getString(), options) # Send message to telegram
+    with open("../auth/auth.json", "r") as auth:
+            options = json.loads(auth.read())
+
+    initdb(options)
+
 
 if __name__ == "__main__":
     main()
