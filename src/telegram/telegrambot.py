@@ -1,5 +1,7 @@
 import telebot
 
+def graph():
+    pass
 
 def send_message_telegram(message, options):
     bot = telebot.TeleBot(options['telegramapikey'])

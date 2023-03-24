@@ -1,39 +1,47 @@
 import json
-import sys
 import time
-from SwoPMDB.dbhandeler import initdb
-#from telegram.telegrambot import send_message_telegram
+from datetime import datetime
+import schedule
+from logs.logger import crashreport
+from SwoPMDB.dbhandeler import push_to_db
+from telegram.telegrambot import send_message_telegram
 from SwoPyApi.swopy import getHomeworkHTML
 from SwoPyApi.parser import Parser
 
 
+
+
+
 def main():
 
-    """
     try:
         with open("../auth/auth.json", "r") as auth:
             options = json.loads(auth.read())
     except:
-        print("auth.json not found")
-        sys.stderr.write("ERR::COULD NOT OPEN AUTH -> PLEASE UPDATE AUTH.JSON\n")
-        sys.exit("Programm failed to retrive data")
+        crashreport("COULD NOT OPEN AUTH")
 
-    html = getHomeworkHTML(options) # Get inner html from swop
-    p = Parser(html) # create parser instance
+    try:
+        html = getHomeworkHTML(options) # Get inner html from swop
+        p = Parser(html) # create parser instance
+        pass
+    except:
+        crashreport("COULD NOT GET DATA -> PLEASE UPDATE AUTH.JSON")
+        
+    try:
+        for i in p.getArray():
+            push_to_db(options, i[0], i[1], i[2]) # push assignments to db
+    except:
+        crashreport("COULD NOT PUSH DATA -> CHECK MONGODB")
 
+    send_message_telegram(p.getString(), options) # Send message to telegram
 
-    print(p.getString())
-    """
-
-    with open("../auth/auth.json", "r") as auth:
-            options = json.loads(auth.read())
-
-    initdb(options)
-
-    #send_message_telegram(p.getString(), options) # Send message to telegram
 
 if __name__ == "__main__":
-    main()
+    schedule.every().friday.at("18:00").do(main)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
+        
 
     
 
