@@ -6,6 +6,7 @@ from datetime import datetime
 import time
 import sys
 
+
 def getHomeworkHTML(options):
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
     driver.get(options['url'])
