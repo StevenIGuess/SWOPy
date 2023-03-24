@@ -1,6 +1,6 @@
 import json
 import sys
-from telegram.telegrambot import send_message_telegram
+#from telegram.telegrambot import send_message_telegram
 from SwoPyApi.swopy import getHomeworkHTML
 from SwoPyApi.parser import Parser
 
@@ -18,7 +18,9 @@ def main():
     html = getHomeworkHTML(options) # Get inner html from swop
     p = Parser(html) # create parser instance
 
-    send_message_telegram(p.getString(), options) # Send message to telegram
+    print(p.getString())
+
+    #send_message_telegram(p.getString(), options) # Send message to telegram
 
 if __name__ == "__main__":
     main()

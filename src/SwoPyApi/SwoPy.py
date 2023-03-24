@@ -12,6 +12,10 @@ def getHomeworkHTML(options):
     driver.find_element(by=By.NAME, value="loginname").send_keys(options['username'])
     driver.find_element(by=By.NAME, value="password").send_keys(options['password'])
     driver.find_element(by=By.XPATH, value=options['loginbtn_xpath']).click()
+    time.sleep(3)
+    driver.find_element(by=By.XPATH, value=options['bookbtn_xpath']).click()
+    time.sleep(1)
+    driver.find_element(by=By.XPATH, value=options['pagebtn_xpath']).click()
 
 
     try:
