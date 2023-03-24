@@ -21,15 +21,16 @@ def main():
     html = getHomeworkHTML(options) # Get inner html from swop
     p = Parser(html) # create parser instance
 
+
     print(p.getString())
     """
 
-    #send_message_telegram(p.getString(), options) # Send message to telegram
     with open("../auth/auth.json", "r") as auth:
             options = json.loads(auth.read())
 
     initdb(options)
 
+    #send_message_telegram(p.getString(), options) # Send message to telegram
 
 if __name__ == "__main__":
     main()
