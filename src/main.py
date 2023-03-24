@@ -9,9 +9,6 @@ from SwoPyApi.swopy import getHomeworkHTML
 from SwoPyApi.parser import Parser
 
 
-
-
-
 def main():
 
     try:
@@ -23,24 +20,26 @@ def main():
     try:
         html = getHomeworkHTML(options) # Get inner html from swop
         p = Parser(html) # create parser instance
-        pass
     except:
         crashreport("COULD NOT GET DATA -> PLEASE UPDATE AUTH.JSON")
         
     try:
         for i in p.getArray():
-            push_to_db(options, i[0], i[1], i[2]) # push assignments to db
+            push_to_db(options, i[0]) # push classes to db
     except:
         crashreport("COULD NOT PUSH DATA -> CHECK MONGODB")
 
-    send_message_telegram(p.getString(), options) # Send message to telegram
+    #send_message_telegram(p.getString(), options) # Send message to telegram
 
 
 if __name__ == "__main__":
+    main()
+    '''
     schedule.every().friday.at("18:00").do(main)
     while True:
         schedule.run_pending()
         time.sleep(1)
+    '''
         
 
     

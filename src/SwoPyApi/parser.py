@@ -32,7 +32,7 @@ class Parser:
             assignment = i['div'][0]['div'][0]['b'][0]["_value"]
             teacher = i['div'][0]['i'][0]['_value'].replace('von ', '')
             subject = i['div'][0]['span'][0]['strong'][0]['_value']
-            arr.append([teacher, assignment, subject])
+            arr.append([subject, teacher, assignment])
         return arr
 
     def saveJson(self):
