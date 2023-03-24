@@ -18,7 +18,7 @@ def main():
     html = getHomeworkHTML(options) # Get inner html from swop
     p = Parser(html) # create parser instance
 
-    send_message_telegram(p.getString(), options) # Send message to telegram
+    #send_message_telegram(p.getString(), options) # Send message to telegram
 
 if __name__ == "__main__":
     main()
