@@ -1,4 +1,6 @@
-SWOP BOT v0.0.1-Alpha
+SWOP BOT v1.0.0-pre
 Changelog
 New features:
--nothing
+-Regular homework updates every friday on 18:00
+-Get current homework,
+with "/homework"

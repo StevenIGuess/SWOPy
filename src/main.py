@@ -29,17 +29,15 @@ def main():
     except:
         crashreport("COULD NOT PUSH DATA -> CHECK MONGODB")
 
-    #send_message_telegram(p.getString(), options) # Send message to telegram
+    send_message_telegram(p.getString(), options) # Send message to telegram
 
 
 if __name__ == "__main__":
     main()
-    '''
     schedule.every().friday.at("18:00").do(main)
     while True:
         schedule.run_pending()
         time.sleep(1)
-    '''
         
 
     
