@@ -18,5 +18,5 @@ Swopy works by scraping the requiered data from swop, then parses it and sends i
 
 
 ## Quickstart 
-Remane ./auth/auth_template to auth.json, edit auth.json with api keys.\
+Renane ./auth/auth_template to auth.json, edit auth.json with api keys.\
 Build and run docker images in ./docker folder.
