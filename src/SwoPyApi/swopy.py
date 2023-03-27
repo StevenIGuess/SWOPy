@@ -10,12 +10,11 @@ import sys
 
 def getHomeworkHTML(options):
     chrome_options = Options()
-    chrome_options.add_argument("--headless")
-    chrome_options.add_argument("--no-sandbox")
-    chrome_options.add_argument("--disable-dev-shm-usage")
+    #chrome_options.add_argument("--headless")
+    #chrome_options.add_argument("--no-sandbox")
+    #chrome_options.add_argument("--disable-dev-shm-usage")
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), chrome_options=chrome_options)
     driver.get(options['url'])
-    print("driver works")
     driver.find_element(by=By.NAME, value="loginname").send_keys(options['username'])
     driver.find_element(by=By.NAME, value="password").send_keys(options['password'])
     driver.find_element(by=By.XPATH, value=options['loginbtn_xpath']).click()
@@ -30,3 +29,4 @@ def getHomeworkHTML(options):
         
     driver.quit()
     return html
+
