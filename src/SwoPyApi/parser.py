@@ -24,6 +24,8 @@ class Parser:
             string += f"Aufgabe nummer {j + 1}\n"
             string += f"{assignment}\n von {teacher}\n Fach : {subject}\n Datum : {date} Abgabe : {deadline}\n"
             string += "=============================\n"
+            print(date)
+        print(string)
         return string
 
     def getArray(self):

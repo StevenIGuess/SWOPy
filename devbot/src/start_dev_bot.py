@@ -37,8 +37,12 @@ if __name__ == '__main__':
             await bot.reply_to(message, f"You do not have permission to do that.")
         else:
             try:
-                p = Parser(getHomeworkHTML(options))
+                html = getHomeworkHTML(options)
+                print(html)
+                p = Parser(html)
+                print("worked")
                 text = p.getString()
+                print(text)
                 await bot.reply_to(message, text)
             except:
                 await bot.reply_to(message, f"Something went wrong.")
